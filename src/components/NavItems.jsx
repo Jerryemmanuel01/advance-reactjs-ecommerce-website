@@ -61,6 +61,13 @@ const NavItems = () => {
                         <span></span>
                     </div>
 
+                    {/* social toggler */}
+                    <div className='ellepsis-bar d-md-none'
+                    onClick={() => setsocialToggle(!socialToggle)}
+                    >
+                        <i className="icofont-info-square"></i>
+                    </div>
+
                 </div>
             </div>
         </div>
