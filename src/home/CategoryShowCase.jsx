@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Rating from "../components/Rating";
+import { Link } from "react-router-dom";
 
 const title = "Our Products";
 
@@ -105,6 +107,41 @@ const CategoryShowCase = () => {
               <li onClick={() => filterItem("Phones")}>Phones</li>
               <li onClick={() => filterItem("Beauty")}>Beauty</li>
             </ul>
+          </div>
+        </div>
+
+        {/* section body */}
+        <div className="section-wrapper">
+          <div>
+            {
+              item.map((product) => <div key={product.id} className="col">
+                <div className="course-item style-4">
+                  <div className="course-inner">
+                    <div className="course-thumb">
+                      <img src={product.imgUrl} alt={product.title} />
+                      <div className="course-category">
+                        <div className="course-cate">
+                           <a href="#">{product.cate}</a>
+                        </div>
+                        <div className="course-reiew">
+                          <Rating />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* content */}
+                    <div className="course-content">
+                      <Link to={`/shop/${product.id}`}>{product.title}</Link>
+                      <div className="course-footer">
+                        <div>
+                          <Link to='/' className="ca-name">{product.brand}</Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> )
+            }
           </div>
         </div>
       </div>
