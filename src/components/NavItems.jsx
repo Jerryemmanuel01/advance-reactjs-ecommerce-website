@@ -15,6 +15,10 @@ const NavItems = () => {
       setheaderFixed(false);
     }
   });
+
+  // const closeToggle = () =>{
+  //   return setmenuToggle(false)
+  // }
   return (
     <header
       className={`header-section style-4 ${
@@ -50,20 +54,30 @@ const NavItems = () => {
             <div className="menu-area">
               <div className="menu">
                 <ul className={`lab-ul ${menuToggle ? "active" : ""}`}>
-                  <li>
-                    <Link to="/">Home</Link>
+                  <li className="">
+                    <Link to="/" onClick={() => setmenuToggle(false)}>
+                      Home
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/shop">Shop</Link>
+                    <Link to="/shop" onClick={() => setmenuToggle(false)}>
+                      Shop
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/blog">Blog</Link>
+                    <Link to="/blog" onClick={() => setmenuToggle(false)}>
+                      Blog
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/about">About</Link>
+                    <Link to="/about" onClick={() => setmenuToggle(false)}>
+                      About
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/contact">Contact</Link>
+                    <Link to="/contact" onClick={() => setmenuToggle(false)}>
+                      Contact
+                    </Link>
                   </li>
                 </ul>
               </div>
