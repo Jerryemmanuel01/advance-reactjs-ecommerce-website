@@ -59,14 +59,15 @@ const Banner = () => {
               <i className="icofont-search"></i>
             </button>
           </form>
-          
+
           <p>{desc}</p>
           <ul className="lab-ul">
-            {
-            searchInput && filterProduct.map((product, i) => <li key={i}>
-              <Link to={`/shop/${product.id}`}>{product.name}</Link>
-            </li>)
-            }
+            {searchInput &&
+              filterProduct.map((product, i) => (
+                <li key={i}>
+                  <Link to={`/shop/${product.id}`}>{product.name}</Link>
+                </li>
+              ))}
           </ul>
         </div>
       </div>
