@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
-import PageHeader from '../components/PageHeader'
-import Data from "../products.json"
+import React, { useState } from "react";
+import PageHeader from "../components/PageHeader";
+import Data from "../products.json";
+import ProductCart from "./ProductCards";
 
-const showResults = 'showing 01 - 12 of 129 Results'
-
+const showResults = "showing 01 - 12 of 129 Results";
 
 const Shop = () => {
-    const [gridList, setgridList] = useState(true)
-    const [product, setproduct] = useState(Data)
+  const [gridList, setgridList] = useState(true);
+  const [products, setproducts] = useState(Data);
   return (
     <div>
       <PageHeader title="Our Shop Page" curPage="Shop" />
@@ -20,17 +20,24 @@ const Shop = () => {
                 {/* layout and title here */}
                 <div className="shop-title d-flex flex-wrap justify-content-between">
                   <p>{showResults}</p>
-                    <div className={`product-view-mode ${gridList ? 'gridActive' : 'listActive'}`}>
-                        <a className="grid" onClick={() => setgridList(!gridList)}>
-                            <i className="icofont-ghost"></i>
-                        </a>
-                        <a className="list" onClick={() => setgridList(!gridList)}>
-                            <i className="icofont-listine-dots"></i>
-                        </a>
-                    </div>
+                  <div
+                    className={`product-view-mode ${
+                      gridList ? "gridActive" : "listActive"
+                    }`}
+                  >
+                    <a className="grid" onClick={() => setgridList(!gridList)}>
+                      <i className="icofont-ghost"></i>
+                    </a>
+                    <a className="list" onClick={() => setgridList(!gridList)}>
+                      <i className="icofont-listine-dots"></i>
+                    </a>
+                  </div>
                 </div>
 
-                <div className=""></div>
+                {/* products  */}
+                <div className="">
+                  <ProductCart gridList={gridList} products={products} />
+                </div>
               </article>
             </div>
             <div className="col-lg-4 col-12">right side</div>
@@ -39,6 +46,6 @@ const Shop = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Shop
+export default Shop;
