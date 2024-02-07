@@ -52,16 +52,15 @@ const Shop = () => {
 
                 {/* products  */}
                 <div className="">
-                  <ProductCart gridList={gridList} products={products} />
+                  <ProductCart gridList={gridList} products={currentProducts} />
                 </div>
 
                 <Pagination
-                productPerPage={productPerPage}
-                totalProducts={products.length}
-                paginate={paginate}
-                activePage={currentPage}
+                  productPerPage={productPerPage}
+                  totalProducts={products.length}
+                  paginate={paginate}
+                  activePage={currentPage}
                 />
-
               </article>
             </div>
             <div className="col-lg-4 col-12">right side</div>

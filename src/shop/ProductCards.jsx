@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import Rating from '../components/Rating'
 
 const ProductCart = ({gridList, products }) => {
-    console.log(products);
   return (
     <div
       className={`shop-product-wrap row justify-content-center ${
