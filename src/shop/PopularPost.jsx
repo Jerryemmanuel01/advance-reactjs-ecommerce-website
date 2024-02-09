@@ -1,4 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
+
+const title = 'Most Popular Post'
 
 const postList = [
   {
@@ -33,8 +36,29 @@ const postList = [
 
 const PopularPost = () => {
   return (
-    <div>PopularPost</div>
-  )
+    <div className="widget widget-post">
+      <div className="widget-header">
+        <h5 className="title">{title}</h5>
+      </div>
+
+      <ul className="widget-wrapper">
+        {postList.map((blog, i) => (
+          <li key={i} className='d-flex justify-content-between'>
+            <div className="post-thumb">
+              <Link to={`/blog ${blog.id}`}>
+                {" "}
+                <img src={blog.imgUrl} alt="" />{" "}
+              </Link>
+            </div>
+            <div className="post-content">
+              <Link to={`/blog ${blog.id}`}> <h5>{blog.title}</h5> </Link>
+              <p>{blog.date}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 export default PopularPost
