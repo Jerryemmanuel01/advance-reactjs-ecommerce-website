@@ -53,7 +53,7 @@ const Sponsor = () => {
                   spaceBetween: 40,
                 },
                 1024: {
-                  slidesPerView: 5,
+                  slidesPerView: 3,
                   spaceBetween: 50,
                 },
               }}
@@ -63,7 +63,7 @@ const Sponsor = () => {
               {
                 sponsorList.map((val, i) => (
                     <SwiperSlide key={i}>
-                        <div className="sponsor-item">
+                        <div className="sponsor-item d-flex justify-content-center">
                             <div className="sponsor-thumb">
                                 <img src={val.imgUrl} alt="" />
                             </div>

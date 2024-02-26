@@ -5,7 +5,7 @@ const desc =
   "Energies an deliver  stactica matrcs after avsionary Apropria transition enterprice an source appication energing psd template.";
 
 const ProductDisplay = ({ item }) => {
-  const { name, id, price, seller, ratingsCount, quantity } = item;
+  const { name, id, price, seller, ratingsCount, quantity, img } = item;
   const [preQuantity, setPreQuantity] = useState(quantity);
   const [coupon, setCoupon] = useState("");
   const [size, setSize] = useState("Select Size");
@@ -29,6 +29,24 @@ const ProductDisplay = ({ item }) => {
     setPreQuantity(preQuantity + 1);
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const product = {
+      id: id,
+      img: img,
+      name: name,
+      price: price,
+      quantity:preQuantity,
+      size:size,
+      color: color,
+      coupon: coupon
+    }
+
+    console.log(product);
+  };
+
+
   return (
     <div>
       <div>
@@ -48,7 +66,7 @@ const ProductDisplay = ({ item }) => {
 
       {/* cart components */}
       <div className="">
-        <form>
+        <form onSubmit={handleSubmit}>
           {/* size */}
           <div className="select-product size">
             <select value={size} onChange={handleSizeChange}>
