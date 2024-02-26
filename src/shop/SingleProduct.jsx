@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Autoplay } from "swiper/modules";
 import ProductDisplay from "./ProductDisplay";
+import Review from "./Review";
 
 const SingleProduct = () => {
   const [product, setproduct] = useState([]);
@@ -74,7 +75,7 @@ const SingleProduct = () => {
                     </div>
                   </div>
                 </div>
-                <div className="review"></div>
+                <div className="review"><Review /></div>
               </article>
             </div>
             <div className="col-lg-4 col-12">right side</div>
