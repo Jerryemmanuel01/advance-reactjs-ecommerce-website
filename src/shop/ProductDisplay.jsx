@@ -19,15 +19,15 @@ const ProductDisplay = ({ item }) => {
     setColor(e.target.value);
   };
 
-  const handleDecrease = () =>{
-    if(preQuantity > 1){
-        setPreQuantity(preQuantity - 1)
+  const handleDecrease = () => {
+    if (preQuantity > 1) {
+      setPreQuantity(preQuantity - 1);
     }
-  }
+  };
 
-  const handleIncrease = () =>{
+  const handleIncrease = () => {
     setPreQuantity(preQuantity + 1);
-  }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,15 +37,34 @@ const ProductDisplay = ({ item }) => {
       img: img,
       name: name,
       price: price,
-      quantity:preQuantity,
-      size:size,
+      quantity: preQuantity,
+      size: size,
       color: color,
-      coupon: coupon
+      coupon: coupon,
+    };
+
+    // console.log(product);
+    const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const existingProductIndex = existingCart.findIndex(
+      (item) => item.id === id
+    );
+
+    if (existingProductIndex !== -1) {
+      existingCart[existingProductIndex].quantity += preQuantity;
+    } else {
+      existingCart.push(product);
     }
 
-    console.log(product);
-  };
+    // update local storage
+    localStorage.setItem("cart", JSON.stringify(existingCart));
 
+    // reset form fields
+    setPreQuantity(1);
+    setSize("Select Size");
+    setColor("Select Color");
+    setCoupon("");
+  };
 
   return (
     <div>
@@ -113,17 +132,20 @@ const ProductDisplay = ({ item }) => {
 
           {/* coupon cart */}
           <div className="discount-code mb-2">
-            <input type="text" placeholder="Enter Discount Code" onChange={(e) => setCoupon(e.target.value)} />
+            <input
+              type="text"
+              placeholder="Enter Discount Code"
+              onChange={(e) => setCoupon(e.target.value)}
+            />
           </div>
 
           {/* btn section */}
           <button type="submit" className="lab-btn">
             <span>Add to Cart</span>
           </button>
-          <Link to='/cart-page' className="lab-btn bg-primary">
+          <Link to="/cart-page" className="lab-btn bg-primary">
             <span>Checkout</span>
           </Link>
-
         </form>
       </div>
     </div>
