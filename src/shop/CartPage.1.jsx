@@ -3,7 +3,7 @@ import PageHeader from "../components/PageHeader";
 import { Link } from "react-router-dom";
 import delImgUrl from "../assets/images/shop/del.png";
 
-const CartPage = () => {
+export const CartPage = () => {
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
@@ -130,73 +130,10 @@ const CartPage = () => {
             {/* cart top ended */}
             {/* cart bottom */}
 
-            <div className="cart-bottom">
-              {/* checkout box */}
-              <div className="cart-checkout-box">
-                <form className="coupon">
-                  <input
-                    type="text"
-                    name="coupon"
-                    id="coupon"
-                    placeholder="Coupon code ...."
-                    className="cart-page-input-text"
-                  />
-                  <input type="submit" value={'Apply Coupon'} />
-                </form>
-
-                <form className="cart-checkout">
-                    <input type="submit" value="Update Cart" />
-                </form>
-              </div>
-              {/* checkout box ended */}
-
-              {/* shipping box */}
-              <div className="shiping-box">
-                <div className="row">
-                    <div className="col-md-6 col-12">
-                        <div className="calculate-shiping">
-                            <h3>Calculate Shipping</h3>
-                            <div className="outline-select">
-                                <select>
-                                    <option value="uk">United Kingdom (UK)</option>
-                                    <option value="us">United State (USA)</option>
-                                    <option value="gh">Ghana</option>
-                                    <option value="ngn">Nigeria</option>
-                                    <option value="ind">India</option>
-                                    <option value="ch">Chian</option>
-                                </select>
-                                <span className="select-icon">
-                                    <i className="icofont-rounded-down"></i>
-                                </span>
-                            </div>
-
-                            <div className="outline-select shipping-select">
-                               <select>
-                                    <option value="uk">London</option>
-                                    <option value="us">Washington DC</option>
-                                    <option value="gh">Accra</option>
-                                    <option value="ngn">Abuja</option>
-                                    <option value="ind">New Delhi</option>
-                                    <option value="ch">Beijing</option>
-                                </select> 
-                                <span className="select-icon">
-                                    <i className="icofont-rounded-down"></i>
-                                </span>
-                            </div>
-                            <input type="text" name="postalCode" id="postalCode" placeholder="Postal Code/ZIP" className="cart-page-input-text" />
-                            <button type="submit">Update Address</button>
-                        </div>
-                    </div>
-                    
-                    <div className="col-md-6 col-12">Right Side</div>
-                </div>
-              </div>
-            </div>
+            <div className="cart-bottom"></div>
           </div>
         </div>
       </div>
     </div>
   );
 };
-
-export default CartPage;
