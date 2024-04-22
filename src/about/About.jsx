@@ -63,19 +63,17 @@ const About = () => {
 
                 <div className="section-wrapper">
                   <ul className="lab-ul">
-                    {
-                      aboutList.map((val, i) => (
-                        <li key={i}>
-                          <div className="sr-left">
-                            <img src={val.imgUrl} alt="" />
-                          </div>
-                          <div className="sr-right">
-                            <h5>{val.title}</h5>
-                            <p>{val.desc}</p>
-                          </div>
-                        </li>
-                      ))
-                    }
+                    {aboutList.map((val, i) => (
+                      <li key={i}>
+                        <div className="sr-left">
+                          <img src={val.imgUrl} alt="" />
+                        </div>
+                        <div className="sr-right">
+                          <h5>{val.title}</h5>
+                          <p>{val.desc}</p>
+                        </div>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
