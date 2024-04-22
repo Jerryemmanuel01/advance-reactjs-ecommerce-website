@@ -62,7 +62,7 @@ const LocationSpread = () => {
                   <span>{val.text}</span>
                 </Link>
                 <div className="client-thumb">
-                    <img src={val.imgUrl} alt={val.imgAlt} />
+                  <img src={val.imgUrl} alt={val.imgAlt} />
                 </div>
               </div>
             ))}

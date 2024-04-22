@@ -82,13 +82,13 @@ const ProductData = [
 const CategoryShowCase = () => {
   const [item, setitem] = useState(ProductData);
 
-//   category based filtering
-  const filterItem = (categItem) =>{
+  //   category based filtering
+  const filterItem = (categItem) => {
     const updateItems = ProductData.filter((curElem) => {
       return curElem.cate === categItem;
-    })
-    setitem(updateItems)
-  }
+    });
+    setitem(updateItems);
+  };
 
   return (
     <div className="course-section style-3 padding-tb">

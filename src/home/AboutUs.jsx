@@ -54,18 +54,20 @@ const AboutUs = () => {
             </div>
 
             <div className="col">
-                <div className="instructor-content">
-                    <span className="subtitle">{subTitle}</span>
-                    <h2 className="title">{title}</h2>
-                    <p>{desc}</p>
-                    <Link to='/sign-up' className="lab-btn">{btnText}</Link>
-                </div>
+              <div className="instructor-content">
+                <span className="subtitle">{subTitle}</span>
+                <h2 className="title">{title}</h2>
+                <p>{desc}</p>
+                <Link to="/sign-up" className="lab-btn">
+                  {btnText}
+                </Link>
+              </div>
             </div>
 
             <div className="col">
-                <div className="instructor-thumb">
-                    <img src="/src/assets/images/instructor/01.png" alt="" />
-                </div>
+              <div className="instructor-thumb">
+                <img src="/src/assets/images/instructor/01.png" alt="" />
+              </div>
             </div>
           </div>
         </div>

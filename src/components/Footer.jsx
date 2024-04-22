@@ -1,6 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
-
+import React from "react";
+import { Link } from "react-router-dom";
 
 const title = "About ShopCart";
 const desc =
@@ -152,7 +151,6 @@ const Footer = () => {
       <div className="footer-top dark-view padding-tb">
         <div className="container">
           <div className="row g-4 row-cols-xl-4 row-cols-sm-2 row-cols-1 justify-content-center">
-
             <div className="col">
               <div className="footer-item address">
                 <div className="footer-inner">
@@ -176,7 +174,9 @@ const Footer = () => {
                             className="justify-content-center align-item-center"
                           >
                             <a href="#" className={val.className}>
-                              <i className={`${val.iconName} m-0`}>{val.text}</i>
+                              <i className={`${val.iconName} m-0`}>
+                                {val.text}
+                              </i>
                             </a>
                           </li>
                         ))}
@@ -228,7 +228,7 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="col">
               <div className="footer-item address">
                 <div className="footer-inner">
@@ -250,7 +250,6 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -259,19 +258,25 @@ const Footer = () => {
       <div className="footer-bottom">
         <div className="container">
           <div className="section-wrapper">
-            <p>&copy; 2023 <Link to='/'>Shop Cart</Link> Designed by <a href='/' target='_blank'>XYZ</a></p>
+            <p>
+              &copy; 2023 <Link to="/">Shop Cart</Link> Designed by{" "}
+              <a href="/" target="_blank">
+                XYZ
+              </a>
+            </p>
             <div className="footer-botton-list">
-              {
-                footerbottomList.map((val, i) => (
-                  <a href="#" key={i}> {val.text} </a>
-                ))
-              }
+              {footerbottomList.map((val, i) => (
+                <a href="#" key={i}>
+                  {" "}
+                  {val.text}{" "}
+                </a>
+              ))}
             </div>
           </div>
         </div>
       </div>
     </footer>
   );
-}
+};
 
-export default Footer
+export default Footer;

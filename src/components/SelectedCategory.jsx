@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const SelectedCategory = (select) => {
   return (
@@ -67,6 +67,6 @@ const SelectedCategory = (select) => {
       <option value="event-wordpress">Event</option>
     </select>
   );
-}
+};
 
-export default SelectedCategory
+export default SelectedCategory;
