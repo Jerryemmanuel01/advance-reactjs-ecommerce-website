@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 // import required modules
-import { Autoplay } from "swiper/modules";
+import { Autoplay } from 'swiper/modules';
 
 const sponsorList = [
   {
@@ -37,10 +37,12 @@ const Sponsor = () => {
             <Swiper
               slidesPerView={2}
               spaceBetween={20}
-              autoplay={{
-                delay: 2000,
-                disableOnInteraction: false,
-              }}
+              autoplay={
+                {
+                    delay:2000,
+                    disableOnInteraction:false
+                }
+              }
               breakpoints={{
                 640: {
                   slidesPerView: 1,
@@ -58,15 +60,17 @@ const Sponsor = () => {
               modules={[Autoplay]}
               className="mySwiper"
             >
-              {sponsorList.map((val, i) => (
-                <SwiperSlide key={i}>
-                  <div className="sponsor-item d-flex justify-content-center">
-                    <div className="sponsor-thumb">
-                      <img src={val.imgUrl} alt="" />
-                    </div>
-                  </div>
-                </SwiperSlide>
-              ))}
+              {
+                sponsorList.map((val, i) => (
+                    <SwiperSlide key={i}>
+                        <div className="sponsor-item d-flex justify-content-center">
+                            <div className="sponsor-thumb">
+                                <img src={val.imgUrl} alt="" />
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                ))
+              }
             </Swiper>
           </div>
         </div>
