@@ -1,5 +1,6 @@
 import React from 'react'
 import PageHeader from '../components/PageHeader'
+import GoogleMap from '../components/GoogleMap';
 
 const subTitle = "Get in touch with us";
 const title = "We're Always Eager To Hear From You!";
@@ -45,6 +46,33 @@ const Contact = () => {
             <div className="section-header text-center">
                 <span className='subtitle'>{subTitle}</span>
                 <h2 className="title">{title}</h2>
+            </div>
+
+            <div className="section-wrapper">
+                <div className="row flex-row-reverse">
+                    <div className="col-xl-4 col-lg-5 col-12">
+                        <div className="contact-wrapper">
+                            {
+                                contactList.map((val, i) =>(
+                                    <div className="contact-item" key={i}>
+                                        <div className="contact-thumb">
+                                            <img src={val.imgUrl} alt="" />
+                                        </div>
+                                        <div className="contact-content">
+                                            <h6 className="title">{val.title}</h6>
+                                            <p>{val.desc}</p>
+                                        </div>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
+
+                    {/* google map */}
+                    <div className="col-xl-8 col-lg-7 col-12">
+                        <GoogleMap />
+                    </div>
+                </div>
             </div>
         </div>
       </div>
