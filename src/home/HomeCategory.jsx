@@ -70,9 +70,17 @@ const HomeCategory = () => {
                       <div className="cate-icon">
                         <i className={val.iconName}></i>
                       </div>
-                      <Link to="/shop">
+                      {/* <Link to="/shop">
                         <h6>{val.title}</h6>
-                      </Link>
+                      </Link> */}
+                      <button
+                        className="btn"
+                        onClick={() => {
+                          history.push("/shop");
+                        }}
+                      >
+                        <h6>{val.title}</h6>
+                      </button>
                     </div>
                   </div>
                 </Link>

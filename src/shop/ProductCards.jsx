@@ -10,7 +10,7 @@ const ProductCart = ({gridList, products }) => {
       }`}
     >
       {products.map((product, i) => (
-        <div className="col-lg-4 col-md-6 col-12">
+        <div className="col-lg-4 col-md-6 col-12" key={i}>
           <div className="product-item">
             <div className="product-thumb">
               <div className="pro-thumb">
