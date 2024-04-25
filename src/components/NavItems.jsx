@@ -34,7 +34,7 @@ const NavItems = () => {
       <div className={`header-top d-md-none ${socialToggle ? "open" : ""}`}>
         <div className="container">
           <div className="header-top-area">
-            <Link to="/signup" className="lab-btn me-3">
+            <Link to="/sign-up" className="lab-btn me-3">
               <span>Create Account</span>
             </Link>
             <Link to="/login">
@@ -88,7 +88,7 @@ const NavItems = () => {
               </div>
 
               {/* sign in or log in */}
-              <Link to="/signup" className="lab-btn me-3 d-none d-md-block">
+              <Link to="/sign-up" className="lab-btn me-3 d-none d-md-block">
                 Create Account
               </Link>
               <Link to="/login" className="d-none d-md-block">
