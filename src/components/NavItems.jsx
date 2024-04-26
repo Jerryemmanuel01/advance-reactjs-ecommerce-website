@@ -9,7 +9,7 @@ const NavItems = () => {
   const [headerFixed, setheaderFixed] = useState(false);
 
   // authInfo
-  const {user} = useContext(AuthContext)
+  const {user, logout} = useContext(AuthContext)
   console.log(user);
 
   //add event listener
@@ -21,9 +21,9 @@ const NavItems = () => {
     }
   });
 
-  // const closeToggle = () =>{
-  //   return setmenuToggle(false)
-  // }
+  const handleLogout = () => {
+    logout()
+  };
   return (
     <header
       className={`header-section style-4 ${
@@ -91,6 +91,9 @@ const NavItems = () => {
               <Link to="/sign-up" className="lab-btn me-3 d-none d-md-block">
                 Create Account
               </Link>
+              <button onClick={handleLogout} className="lab-btn me-3 d-none d-md-block">
+                Logout
+              </button>
               <Link to="/login" className="d-none d-md-block">
                 Log In
               </Link>

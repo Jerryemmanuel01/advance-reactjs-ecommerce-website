@@ -35,7 +35,7 @@ const Login = () => {
     })
     .catch(error => {
         const errorMsg = error.message;
-        setErrorMessage("Please provide valid credentials")
+        setErrorMessage(`Please provide valid credentials ${errorMsg}`)
     })
   };
 
