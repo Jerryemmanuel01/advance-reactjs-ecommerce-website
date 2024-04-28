@@ -1,7 +1,8 @@
 import { React, useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/images/logo/logo.png";
+import logo from "../assets/images/logo/logo01.png";
 import { AuthContext } from "../contexts/AuthProvider";
+import { Dropdown, Image } from "react-bootstrap";
 
 const NavItems = () => {
   const [menuToggle, setmenuToggle] = useState(false);
@@ -9,7 +10,7 @@ const NavItems = () => {
   const [headerFixed, setheaderFixed] = useState(false);
 
   // authInfo
-  const {user, logout} = useContext(AuthContext)
+  const { user, logout } = useContext(AuthContext);
   console.log(user);
 
   //add event listener
@@ -22,7 +23,7 @@ const NavItems = () => {
   });
 
   const handleLogout = () => {
-    logout()
+    logout();
   };
   return (
     <header
@@ -51,7 +52,7 @@ const NavItems = () => {
             {/* logo */}
             <div className="logo-search-acte">
               <Link to={"/"}>
-                <img src={logo} alt="" />
+                <img src={logo} width={150} alt="" />
               </Link>
             </div>
 
@@ -88,33 +89,95 @@ const NavItems = () => {
               </div>
 
               {/* sign in or log in */}
-              <Link to="/sign-up" className="lab-btn me-3 d-none d-md-block">
-                Create Account
-              </Link>
-              <button onClick={handleLogout} className="lab-btn me-3 d-none d-md-block">
-                Logout
-              </button>
-              <Link to="/login" className="d-none d-md-block">
-                Log In
-              </Link>
+              {user ? (
+                <>
+                  <Dropdown>
+                    <Dropdown.Toggle
+                      variant="outline-none"
+                      id="dropdown-basic"
+                    >
+                      {user?.photoURL ? (
+                        <Image
+                          src={user.photoURL}
+                          width={40}
+                          alt=""
+                          roundedCircle
+                        />
+                      ) : (
+                        <i className="icofont-ui-user"></i>
+                      )}
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu className="">
+                      <Dropdown.Item>
+                        <Link to="/">Profile</Link>{" "}
+                      </Dropdown.Item>
+                      <Dropdown.Item>
+                        <Link to="/shop">Shop</Link>{" "}
+                      </Dropdown.Item>
+                      <Dropdown.Item>
+                        <Link to="/cart-page">Cart Order</Link>{" "}
+                      </Dropdown.Item>
+                      <div className="d-md-none ">
+                        <Dropdown.Item>
+                          <Link to="/blog">Blog</Link>{" "}
+                        </Dropdown.Item>
+                        <Dropdown.Item>
+                          <Link to="/about">About</Link>{" "}
+                        </Dropdown.Item>
+                        <Dropdown.Item>
+                          <Link to="/contact">Contact</Link>{" "}
+                        </Dropdown.Item>
+                      </div>
+                      <Dropdown.Item
+                        className="border-top mt-2"
+                        onClick={handleLogout}
+                      >
+                        Logout
+                      </Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </>
+              ) : (
+                <>
+                  <Link
+                    to="/sign-up"
+                    className="lab-btn me-3 d-none d-md-block"
+                  >
+                    Create Account
+                  </Link>
+
+                  <Link to="/login" className="d-none d-md-block">
+                    Log In
+                  </Link>
+                </>
+              )}
 
               {/* menu toggle */}
-              <div
-                onClick={() => setmenuToggle(!menuToggle)}
-                className={`header-bar d-lg-none ${menuToggle ? "active" : ""}`}
-              >
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
+              {user ? (
+                ""
+              ) : (
+                <>
+                  <div
+                    onClick={() => setmenuToggle(!menuToggle)}
+                    className={`header-bar d-lg-none ${
+                      menuToggle ? "active" : ""
+                    }`}
+                  >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
 
-              {/* social toggler */}
-              <div
-                className="ellepsis-bar d-md-none"
-                onClick={() => setsocialToggle(!socialToggle)}
-              >
-                <i className="icofont-info-square"></i>
-              </div>
+                  {/* social toggler */}
+                  <div
+                    className="ellepsis-bar d-md-none"
+                    onClick={() => setsocialToggle(!socialToggle)}
+                  >
+                    <i className="icofont-info-square"></i>
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </div>
